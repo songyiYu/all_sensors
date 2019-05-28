@@ -1,4 +1,4 @@
-# all_sensors
+# All Sensors Flutter Plugin
 
 A Flutter plugin to retreive all of sensor's data. 
 Accelerometer, Gyroscope, Proximity
