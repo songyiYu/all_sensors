@@ -1,8 +1,8 @@
-name: all_sensors
+name: flutter_all_sensors
 description: A new Flutter plugin.
 version: 0.0.1
-author:
-homepage:
+author: Cindyu <songyi0207@gmail.com>
+homepage: https://github.com/songyiYu/all_sensors
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
