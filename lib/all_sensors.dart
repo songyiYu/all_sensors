@@ -2,16 +2,16 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 const EventChannel _accelerometerEventChannel =
-EventChannel('cindyu.com/all_sensors/accelerometer');
+    EventChannel('cindyu.com/all_sensors/accelerometer');
 
 const EventChannel _userAccelerometerEventChannel =
-EventChannel('cindyu.com/all_sensors/user_accel');
+    EventChannel('cindyu.com/all_sensors/user_accel');
 
 const EventChannel _gyroscopeEventChannel =
-EventChannel('cindyu.com/all_sensors/gyroscope');
+    EventChannel('cindyu.com/all_sensors/gyroscope');
 
 const EventChannel _proximityEventChannel =
-EventChannel('cindyu.com/all_sensors/proximity');
+    EventChannel('cindyu.com/all_sensors/proximity');
 
 class AccelerometerEvent {
   /// Acceleration force along the x axis (including gravity) measured in m/s^2.
@@ -75,7 +75,6 @@ class ProximityEvent {
 
   @override
   String toString() => proximity == 0 ? 'true' : 'false';
-
 }
 
 AccelerometerEvent _listToAccelerometerEvent(List<double> list) {
@@ -126,7 +125,7 @@ Stream<UserAccelerometerEvent> get userAccelerometerEvents {
     _userAccelerometerEvents = _userAccelerometerEventChannel
         .receiveBroadcastStream()
         .map((dynamic event) =>
-        _listToUserAccelerometerEvent(event.cast<double>()));
+            _listToUserAccelerometerEvent(event.cast<double>()));
   }
   return _userAccelerometerEvents;
 }

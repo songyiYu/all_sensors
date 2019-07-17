@@ -143,6 +143,8 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 }
 
 - (FlutterError*)onCancelWithArguments:(id)arguments {
+    [UIDevice currentDevice].proximityMonitoringEnabled = NO;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
     return nil;
 }
 
