@@ -1,3 +1,9 @@
+## 0.1.3
+
+* Remove observer if unregister proximity sensor on iOS
+
+## 0.1.2
+
 ## 0.1.1
 
 * Add Description

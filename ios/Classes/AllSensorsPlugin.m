@@ -3,6 +3,8 @@
 #import "AllSensorsPlugin.h"
 #import <CoreMotion/CoreMotion.h>
 
+NSNotificationCenter *proximityObserver;
+
 @implementation AllSensorsPlugin
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
