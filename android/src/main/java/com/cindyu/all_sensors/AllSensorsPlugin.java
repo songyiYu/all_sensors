@@ -5,9 +5,13 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.PowerManager;
+import android.util.Log;
 
 import io.flutter.plugin.common.EventChannel;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+
+import static android.content.Context.POWER_SERVICE;
 
 /** AllSensorsPlugin */
 public class AllSensorsPlugin implements EventChannel.StreamHandler {
@@ -20,8 +24,21 @@ public class AllSensorsPlugin implements EventChannel.StreamHandler {
   private static final String PROXIMITY_CHANNELNAME =
           "cindyu.com/all_sensors/proximity";
 
+  private static PowerManager powerManager;
+  private static PowerManager.WakeLock wakeLock;
+  private static int field = 0x00000020;
+
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
+    try {
+      field = PowerManager.class.getField("PROXIMITY_SCREEN_OFF_WAKE_LOCK").getInt(null);
+    } catch (Throwable ignored) {
+    }
+
+    powerManager = (PowerManager) registrar.context().getSystemService(POWER_SERVICE);
+    wakeLock = powerManager.newWakeLock(field, "AllSensors::Wakelock");
+
+
     final EventChannel accelerometerChannel =
             new EventChannel(registrar.messenger(), ACCELEROMETER_CHANNEL_NAME);
     accelerometerChannel.setStreamHandler(
@@ -74,8 +91,16 @@ public class AllSensorsPlugin implements EventChannel.StreamHandler {
         for (int i = 0; i < event.values.length; i++) {
           sensorValues[i] = event.values[i];
         }
+        if(event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+          setWakeLock(sensorValues[0]);
+        }
         events.success(sensorValues);
       }
     };
+  }
+
+  private void setWakeLock (double value) {
+    if(value == 0) wakeLock.acquire();
+    else wakeLock.release();
   }
 }

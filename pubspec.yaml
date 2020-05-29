@@ -1,12 +1,13 @@
 name: all_sensors
 description: A Flutter plugin to retreive Accelerometer, Gyroscope, Proximity sensor's data.
-version: 0.1.3
+version: 0.2.0
 publisher:
 - Songyi Yu <songyi0207@gmail.com>
 homepage: https://github.com/songyiYu/all_sensors
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
+  flutter: ">=1.12.0 <2.0.0"
 
 dependencies:
   flutter:
@@ -26,8 +27,12 @@ flutter:
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
   plugin:
-    androidPackage: com.cindyu.all_sensors
-    pluginClass: AllSensorsPlugin
+    platforms:
+      android:
+        package: com.cindyu.all_sensors
+        pluginClass: AllSensorsPlugin
+      ios:
+        pluginClass: AllSensorsPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

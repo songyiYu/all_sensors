@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Add android screen off if proximity is true
+
 ## 0.1.3
 
 * Remove observer if unregister proximity sensor on iOS

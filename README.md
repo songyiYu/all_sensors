@@ -3,7 +3,12 @@
 A Flutter plugin to retreive all of sensor's data. 
 [Accelerometer, Gyroscope, Proximity]
 
-Migrated to AndroidX
+
+In proximity, screen will be off if the value is true.
+You must add the WAKE_LOCK permission in the AndroidManifest.xml
+```
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+```
 
 ## Usage
 To use this plugin, add `all_sensors` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
@@ -40,3 +45,5 @@ proximityEvents.listen((ProximityEvent event) {
   });
 })
 ```
+
+Referenced https://pub.dev/packages/sensors
