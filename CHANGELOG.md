@@ -1,3 +1,11 @@
+## 0.2.2
+
+* Fix under-lock error for android
+
+## 0.2.1
+
+* Fix under-lock error for android
+
 ## 0.2.0
 
 * Add android screen off if proximity is true

@@ -100,7 +100,11 @@ public class AllSensorsPlugin implements EventChannel.StreamHandler {
   }
 
   private void setWakeLock (double value) {
-    if(value == 0) wakeLock.acquire();
-    else wakeLock.release();
+    try {
+      if (value == 0) wakeLock.acquire();
+      else if (wakeLock.isHeld()) wakeLock.release();
+    }catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
