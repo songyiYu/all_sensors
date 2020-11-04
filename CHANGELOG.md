@@ -1,3 +1,11 @@
+## 0.3.0
+
+* Fix android proximity unRegisterSensor bug. 
+
+## 0.2.3
+
+* Support FlutterPlugin impl
+
 ## 0.2.2
 
 * Fix under-lock error for android
