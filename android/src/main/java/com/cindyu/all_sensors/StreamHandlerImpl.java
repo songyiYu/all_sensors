@@ -45,10 +45,7 @@ public class StreamHandlerImpl implements EventChannel.StreamHandler{
     @Override
     public void onCancel(Object arguments) {
         onCancelCalled = true;
-        if(far) {
-            sensorManager.unregisterListener(sensorEventListener);
-            sensorManager = null;
-        }
+        if(far) sensorManager.unregisterListener(sensorEventListener);
     }
 
     SensorEventListener createSensorEventListener(final EventChannel.EventSink events, final SensorManager sensorManager) {

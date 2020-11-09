@@ -1,3 +1,7 @@
+## 0.3.1
+
+* Fix Bug
+
 ## 0.3.0
 
 * Fix android proximity unRegisterSensor bug. 
