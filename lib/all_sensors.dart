@@ -132,10 +132,10 @@ Stream<UserAccelerometerEvent> get userAccelerometerEvents {
 
 /// A broadcast stream of events from the device proximity.
 Stream<ProximityEvent> get proximityEvents {
-  if (_proximityEvents == null) {
-    _proximityEvents = _proximityEventChannel
-        .receiveBroadcastStream()
-        .map((dynamic event) => _listToProximityEvent(event.cast<double>()));
-  }
+
+  _proximityEvents = _proximityEventChannel
+      .receiveBroadcastStream()
+      .map((dynamic event) => _listToProximityEvent(event.cast<double>()));
+
   return _proximityEvents;
 }
