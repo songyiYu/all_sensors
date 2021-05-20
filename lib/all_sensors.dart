@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/services.dart';
 
 const EventChannel _accelerometerEventChannel =
@@ -93,13 +94,13 @@ ProximityEvent _listToProximityEvent(List<double> list) {
   return new ProximityEvent(list[0]);
 }
 
-Stream<AccelerometerEvent> _accelerometerEvents;
-Stream<GyroscopeEvent> _gyroscopeEvents;
-Stream<UserAccelerometerEvent> _userAccelerometerEvents;
-Stream<ProximityEvent> _proximityEvents;
+Stream<AccelerometerEvent>? _accelerometerEvents;
+Stream<GyroscopeEvent>? _gyroscopeEvents;
+Stream<UserAccelerometerEvent>? _userAccelerometerEvents;
+Stream<ProximityEvent>? _proximityEvents;
 
 /// A broadcast stream of events from the device accelerometer.
-Stream<AccelerometerEvent> get accelerometerEvents {
+Stream<AccelerometerEvent>? get accelerometerEvents {
   if (_accelerometerEvents == null) {
     _accelerometerEvents = _accelerometerEventChannel
         .receiveBroadcastStream()
@@ -110,7 +111,7 @@ Stream<AccelerometerEvent> get accelerometerEvents {
 }
 
 /// A broadcast stream of events from the device gyroscope.
-Stream<GyroscopeEvent> get gyroscopeEvents {
+Stream<GyroscopeEvent>? get gyroscopeEvents {
   if (_gyroscopeEvents == null) {
     _gyroscopeEvents = _gyroscopeEventChannel
         .receiveBroadcastStream()
@@ -120,7 +121,7 @@ Stream<GyroscopeEvent> get gyroscopeEvents {
 }
 
 /// Events from the device accelerometer with gravity removed.
-Stream<UserAccelerometerEvent> get userAccelerometerEvents {
+Stream<UserAccelerometerEvent>? get userAccelerometerEvents {
   if (_userAccelerometerEvents == null) {
     _userAccelerometerEvents = _userAccelerometerEventChannel
         .receiveBroadcastStream()
@@ -131,8 +132,7 @@ Stream<UserAccelerometerEvent> get userAccelerometerEvents {
 }
 
 /// A broadcast stream of events from the device proximity.
-Stream<ProximityEvent> get proximityEvents {
-
+Stream<ProximityEvent>? get proximityEvents {
   _proximityEvents = _proximityEventChannel
       .receiveBroadcastStream()
       .map((dynamic event) => _listToProximityEvent(event.cast<double>()));
