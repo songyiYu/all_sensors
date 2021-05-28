@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 const EventChannel _accelerometerEventChannel =
-    EventChannel('cindyu.com/all_sensors/accelerometer');
+    EventChannel('cindyu.com/all_sensors2/accelerometer');
 
 const EventChannel _userAccelerometerEventChannel =
-    EventChannel('cindyu.com/all_sensors/user_accel');
+    EventChannel('cindyu.com/all_sensors2/user_accel');
 
 const EventChannel _gyroscopeEventChannel =
-    EventChannel('cindyu.com/all_sensors/gyroscope');
+    EventChannel('cindyu.com/all_sensors2/gyroscope');
 
 const EventChannel _proximityEventChannel =
-    EventChannel('cindyu.com/all_sensors/proximity');
+    EventChannel('cindyu.com/all_sensors2/proximity');
 
 class AccelerometerEvent {
   /// Acceleration force along the x axis (including gravity) measured in m/s^2.

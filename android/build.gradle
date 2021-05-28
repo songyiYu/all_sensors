@@ -1,4 +1,4 @@
-group 'com.cindyu.all_sensors'
+group 'com.cindyu.all_sensors2'
 version '1.0-SNAPSHOT'
 
 buildscript {

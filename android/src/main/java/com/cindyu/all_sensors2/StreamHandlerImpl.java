@@ -1,4 +1,4 @@
-package com.cindyu.all_sensors;
+package com.cindyu.all_sensors2;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

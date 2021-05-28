@@ -1,6 +1,6 @@
-# all_sensors_example
+# all_sensors2_example
 
-Demonstrates how to use the all_sensors plugin.
+Demonstrates how to use the all_sensors2 plugin.
 
 ## Getting Started
 

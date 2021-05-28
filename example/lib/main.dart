@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:all_sensors/all_sensors.dart';
+import 'package:all_sensors2/all_sensors2.dart';
 import 'package:flutter/material.dart';
 
 void main() {

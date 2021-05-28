@@ -11,26 +11,26 @@ NSNotificationCenter *proximityObserver;
     CDYAccelerometerStreamHandler* accelerometerStreamHandler =
     [[CDYAccelerometerStreamHandler alloc] init];
     FlutterEventChannel* accelerometerChannel =
-    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/accelerometer"
+    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors2/accelerometer"
                               binaryMessenger:[registrar messenger]];
     [accelerometerChannel setStreamHandler:accelerometerStreamHandler];
     
     CDYUserAccelStreamHandler* userAccelerometerStreamHandler =
     [[CDYUserAccelStreamHandler alloc] init];
     FlutterEventChannel* userAccelerometerChannel =
-    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/user_accel"
+    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors2/user_accel"
                               binaryMessenger:[registrar messenger]];
     [userAccelerometerChannel setStreamHandler:userAccelerometerStreamHandler];
     
     CDYGyroscopeStreamHandler* gyroscopeStreamHandler = [[CDYGyroscopeStreamHandler alloc] init];
     FlutterEventChannel* gyroscopeChannel =
-    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/gyroscope"
+    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors2/gyroscope"
                               binaryMessenger:[registrar messenger]];
     [gyroscopeChannel setStreamHandler:gyroscopeStreamHandler];
     
     CDYProximityStreamHandler* proximityStreamHandler = [[CDYProximityStreamHandler alloc] init];
     FlutterEventChannel* proximityChannel =
-    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/proximity"
+    [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors2/proximity"
                               binaryMessenger:[registrar messenger]];
     [proximityChannel setStreamHandler:proximityStreamHandler];
 }

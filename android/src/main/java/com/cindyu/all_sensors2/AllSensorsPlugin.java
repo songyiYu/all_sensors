@@ -1,4 +1,4 @@
-package com.cindyu.all_sensors;
+package com.cindyu.all_sensors2;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -21,10 +21,10 @@ import static android.content.Context.POWER_SERVICE;
 public class AllSensorsPlugin implements FlutterPlugin {
 
   /** Plugin registration. */
-  private static final String ACCELEROMETER_CHANNEL_NAME = "cindyu.com/all_sensors/accelerometer";
-  private static final String GYROSCOPE_CHANNEL_NAME = "cindyu.com/all_sensors/gyroscope";
-  private static final String USER_ACCELEROMETER_CHANNEL_NAME = "cindyu.com/all_sensors/user_accel";
-  private static final String PROXIMITY_CHANNELNAME = "cindyu.com/all_sensors/proximity";
+  private static final String ACCELEROMETER_CHANNEL_NAME = "cindyu.com/all_sensors2/accelerometer";
+  private static final String GYROSCOPE_CHANNEL_NAME = "cindyu.com/all_sensors2/gyroscope";
+  private static final String USER_ACCELEROMETER_CHANNEL_NAME = "cindyu.com/all_sensors2/user_accel";
+  private static final String PROXIMITY_CHANNELNAME = "cindyu.com/all_sensors2/proximity";
 
 
   private EventChannel accelerometerChannel;

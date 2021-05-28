@@ -1,9 +1,9 @@
+import 'package:all_sensors2/all_sensors2.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:all_sensors/all_sensors.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('all_sensors');
+  const MethodChannel channel = MethodChannel('all_sensors2');
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {

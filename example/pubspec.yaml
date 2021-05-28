@@ -1,5 +1,5 @@
-name: all_sensors_example
-description: Demonstrates how to use the all_sensors plugin.
+name: all_sensors2_example
+description: Demonstrates how to use the all_sensors2 plugin.
 publish_to: 'none'
 
 environment:
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  all_sensors:
+  all_sensors2:
     path: ../
 
 # For information on the generic Dart part of this file, see the

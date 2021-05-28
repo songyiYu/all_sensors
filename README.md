@@ -11,13 +11,13 @@ You must add the WAKE_LOCK permission in the AndroidManifest.xml
 ```
 
 ## Usage
-To use this plugin, add `all_sensors` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
+To use this plugin, add `all_sensors2` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
 ### Example
 
 ``` dart
 // Import package
-import 'package:all_sensors/all_sensors.dart';
+import 'package:all_sensors2/all_sensors2.dart';
 
 // Instantiate it
 List<double> _accelerometerValues;

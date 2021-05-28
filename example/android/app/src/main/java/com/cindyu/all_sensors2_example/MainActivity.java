@@ -1,4 +1,4 @@
-package com.cindyu.all_sensors_example;
+package com.cindyu.all_sensors2_example;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
