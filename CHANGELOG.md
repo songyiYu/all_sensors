@@ -1,3 +1,11 @@
+## 0.4.0
+
+* Sound null safety.
+
+## 0.3.1+1
+
+* Fix ProximityEvents bug.
+
 ## 0.3.1
 
 * Fix Bug
