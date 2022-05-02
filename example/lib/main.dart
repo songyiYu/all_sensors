@@ -30,9 +30,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late List<double> _accelerometerValues;
-  late List<double> _userAccelerometerValues;
-  late List<double> _gyroscopeValues;
+  List<double> _accelerometerValues = <double>[];
+  List<double> _userAccelerometerValues = <double>[];
+  List<double> _gyroscopeValues = <double>[];
   bool _proximityValues = false;
   List<StreamSubscription<dynamic>> _streamSubscriptions = <StreamSubscription<dynamic>>[];
 
