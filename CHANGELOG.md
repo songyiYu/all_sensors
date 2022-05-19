@@ -1,3 +1,7 @@
+## 0.4.1
+
+* Avoid duplicate error.
+
 ## 0.4.0
 
 * Sound null safety.

@@ -1,22 +1,23 @@
 PODS:
   - all_sensors (0.0.1):
     - Flutter
-  - Flutter (1.0.0)
+  - Flutter (2.10.2)
 
 DEPENDENCIES:
   - all_sensors (from `.symlinks/plugins/all_sensors/ios`)
-  - Flutter (from `.symlinks/flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Flutter
 
 EXTERNAL SOURCES:
   all_sensors:
     :path: ".symlinks/plugins/all_sensors/ios"
-  Flutter:
-    :path: ".symlinks/flutter/ios"
 
 SPEC CHECKSUMS:
   all_sensors: 13f46502204bebbd1e06b65ff3d7cdaa03d88b26
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  Flutter: f806e130a7fc533948a62c576e768b4aec6d41d4
 
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.11.2

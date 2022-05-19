@@ -1,6 +1,6 @@
 # Miscellaneous
 *.class
-*.lock
+#*.lock
 *.log
 *.pyc
 *.swp
@@ -15,8 +15,8 @@
 *.ipr
 *.iws
 .idea/
-*.pbxproj
-Podfile.lock
+#*.pbxproj
+#Podfile.lock
 
 # Visual Studio Code related
 .vscode/

@@ -37,12 +37,12 @@ NSNotificationCenter *proximityObserver;
 
 @end
 
-const double GRAVITY = 9.8;
-CMMotionManager* _motionManager;
+const double GRAVITY_VAL = 9.8;
+CMMotionManager* _cmMotionManager;
 
-void _initMotionManager() {
-    if (!_motionManager) {
-        _motionManager = [[CMMotionManager alloc] init];
+void _initCMMotionManager() {
+    if (!_cmMotionManager) {
+        _cmMotionManager = [[CMMotionManager alloc] init];
     }
 }
 
@@ -57,21 +57,21 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 @implementation CDYAccelerometerStreamHandler
 
 - (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
-    _initMotionManager();
-    [_motionManager
+    _initCMMotionManager();
+    [_cmMotionManager
      startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
      withHandler:^(CMAccelerometerData* accelerometerData, NSError* error) {
          CMAcceleration acceleration = accelerometerData.acceleration;
          // Multiply by gravity, and adjust sign values to
          // align with Android.
-         sendTriplet(-acceleration.x * GRAVITY, -acceleration.y * GRAVITY,
-                     -acceleration.z * GRAVITY, eventSink);
+         sendTriplet(-acceleration.x * GRAVITY_VAL, -acceleration.y * GRAVITY_VAL,
+                     -acceleration.z * GRAVITY_VAL, eventSink);
      }];
     return nil;
 }
 
 - (FlutterError*)onCancelWithArguments:(id)arguments {
-    [_motionManager stopAccelerometerUpdates];
+    [_cmMotionManager stopAccelerometerUpdates];
     return nil;
 }
 
@@ -80,20 +80,20 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 @implementation CDYUserAccelStreamHandler
 
 - (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
-    _initMotionManager();
-    [_motionManager
+    _initCMMotionManager();
+    [_cmMotionManager
      startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc] init]
      withHandler:^(CMDeviceMotion* data, NSError* error) {
          CMAcceleration acceleration = data.userAcceleration;
          // Multiply by gravity, and adjust sign values to align with Android.
-         sendTriplet(-acceleration.x * GRAVITY, -acceleration.y * GRAVITY,
-                     -acceleration.z * GRAVITY, eventSink);
+         sendTriplet(-acceleration.x * GRAVITY_VAL, -acceleration.y * GRAVITY_VAL,
+                     -acceleration.z * GRAVITY_VAL, eventSink);
      }];
     return nil;
 }
 
 - (FlutterError*)onCancelWithArguments:(id)arguments {
-    [_motionManager stopDeviceMotionUpdates];
+    [_cmMotionManager stopDeviceMotionUpdates];
     return nil;
 }
 
@@ -102,8 +102,8 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 @implementation CDYGyroscopeStreamHandler
 
 - (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
-    _initMotionManager();
-    [_motionManager
+    _initCMMotionManager();
+    [_cmMotionManager
      startGyroUpdatesToQueue:[[NSOperationQueue alloc] init]
      withHandler:^(CMGyroData* gyroData, NSError* error) {
          CMRotationRate rotationRate = gyroData.rotationRate;
@@ -113,7 +113,7 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 }
 
 - (FlutterError*)onCancelWithArguments:(id)arguments {
-    [_motionManager stopGyroUpdates];
+    [_cmMotionManager stopGyroUpdates];
     return nil;
 }
 
