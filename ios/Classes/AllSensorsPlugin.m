@@ -58,15 +58,17 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 
 - (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
     _initCMMotionManager();
-    [_cmMotionManager
-     startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
-     withHandler:^(CMAccelerometerData* accelerometerData, NSError* error) {
-         CMAcceleration acceleration = accelerometerData.acceleration;
-         // Multiply by gravity, and adjust sign values to
-         // align with Android.
-         sendTriplet(-acceleration.x * GRAVITY_VAL, -acceleration.y * GRAVITY_VAL,
-                     -acceleration.z * GRAVITY_VAL, eventSink);
-     }];
+    if ([motionManager isAccelerometerAvailable] == YES){
+        [_cmMotionManager
+         startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
+         withHandler:^(CMAccelerometerData* accelerometerData, NSError* error) {
+             CMAcceleration acceleration = accelerometerData.acceleration;
+             // Multiply by gravity, and adjust sign values to
+             // align with Android.
+             sendTriplet(-acceleration.x * GRAVITY_VAL, -acceleration.y * GRAVITY_VAL,
+                         -acceleration.z * GRAVITY_VAL, eventSink);
+         }];
+    }
     return nil;
 }
 
