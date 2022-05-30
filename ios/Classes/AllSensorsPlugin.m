@@ -58,7 +58,7 @@ static void sendTriplet(Float64 x, Float64 y, Float64 z, FlutterEventSink sink) 
 
 - (FlutterError*)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink {
     _initCMMotionManager();
-    if ([motionManager isAccelerometerAvailable] == YES){
+    if ([_cmMotionManager isAccelerometerAvailable] == YES){
         [_cmMotionManager
          startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
          withHandler:^(CMAccelerometerData* accelerometerData, NSError* error) {
