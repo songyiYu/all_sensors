@@ -13,29 +13,43 @@ NSNotificationCenter *proximityObserver;
     FlutterEventChannel* accelerometerChannel =
     [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/accelerometer"
                               binaryMessenger:[registrar messenger]];
-    [accelerometerChannel setStreamHandler:accelerometerStreamHandler];
-    
     CDYUserAccelStreamHandler* userAccelerometerStreamHandler =
     [[CDYUserAccelStreamHandler alloc] init];
     FlutterEventChannel* userAccelerometerChannel =
     [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/user_accel"
                               binaryMessenger:[registrar messenger]];
-    [userAccelerometerChannel setStreamHandler:userAccelerometerStreamHandler];
-    
+
+
     CDYGyroscopeStreamHandler* gyroscopeStreamHandler = [[CDYGyroscopeStreamHandler alloc] init];
     FlutterEventChannel* gyroscopeChannel =
     [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/gyroscope"
                               binaryMessenger:[registrar messenger]];
-    [gyroscopeChannel setStreamHandler:gyroscopeStreamHandler];
-    
+
+
     CDYProximityStreamHandler* proximityStreamHandler = [[CDYProximityStreamHandler alloc] init];
     FlutterEventChannel* proximityChannel =
     [FlutterEventChannel eventChannelWithName:@"cindyu.com/all_sensors/proximity"
                               binaryMessenger:[registrar messenger]];
     [proximityChannel setStreamHandler:proximityStreamHandler];
+
+    NSProcessInfo* _processInfo;
+    if (@available(iOS 14.0, *)) {
+        BOOL isiOSAppOnMac = [NSProcessInfo processInfo].isiOSAppOnMac ? YES : NO;
+        if(isiOSAppOnMac) {
+        } else {
+            [accelerometerChannel setStreamHandler:accelerometerStreamHandler];
+            [userAccelerometerChannel setStreamHandler:userAccelerometerStreamHandler];
+            [gyroscopeChannel setStreamHandler:gyroscopeStreamHandler];
+        }
+    } else {
+        [accelerometerChannel setStreamHandler:accelerometerStreamHandler];
+        [userAccelerometerChannel setStreamHandler:userAccelerometerStreamHandler];
+        [gyroscopeChannel setStreamHandler:gyroscopeStreamHandler];
+    }
 }
 
 @end
+
 
 const double GRAVITY_VAL = 9.8;
 CMMotionManager* _cmMotionManager;

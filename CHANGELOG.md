@@ -1,3 +1,7 @@
+## 0.4.2
+
+* [Solved] Infinite stuck in iOS app on Mac.
+
 ## 0.4.1
 
 * Avoid duplicate error.
