@@ -1,3 +1,9 @@
+## Unreleased
+
+* [Android] Migrate to latest Gradle 8.9 and AGP 8.7.2 with dev.flutter.flutter-gradle-plugin.
+* [Android] Remove deprecated Registrar and update to new FlutterPlugin architecture.
+* [Android] Fix AndroidManifest.xml android:exported attribute for Android 12+.
+
 ## 0.4.2
 
 * [Solved] Infinite stuck in iOS app on Mac.
