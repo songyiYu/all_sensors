@@ -1,4 +1,4 @@
-## Unreleased
+## 0.5.0
 
 * [Android] Migrate to latest Gradle 8.9 and AGP 8.7.2 with dev.flutter.flutter-gradle-plugin.
 * [Android] Remove deprecated Registrar and update to new FlutterPlugin architecture.

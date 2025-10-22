@@ -1,6 +1,6 @@
 name: all_sensors
 description: A Flutter plugin to retreive Accelerometer, Gyroscope, Proximity sensor's data.
-version: 0.4.2
+version: 0.5.0
 homepage: https://github.com/songyiYu/all_sensors
 
 environment:
